@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 
 class OrderScreen extends StatelessWidget {
   const OrderScreen({super.key});
@@ -8,46 +7,53 @@ class OrderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(4.0),
         child: Column(
           children: [
             Container(
-              color: Colors.amberAccent,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(6),
+                color: Colors.amberAccent,
+              ),
               height: 100,
-              child: Center(
+              child: const Center(
                 child: Text("Contenitore totale ordine"),
               ),
             ),
             const SizedBox(height: 20),
             Expanded(
               child: Container(
-                color: Colors.blueAccent,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      Container(
-                        width: 100,
-                        color: Colors.orangeAccent,
+                color: Colors.white,
+                child: Row(
+                  children: [
+                    Container(
+                      width: 150,
+                      decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 212, 158, 86),
+                          borderRadius: BorderRadius.circular(6)),
+                    ),
+                    const SizedBox(
+                      width: 8,
+                    ),
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: const Color.fromARGB(255, 255, 215, 200),
+                            borderRadius: BorderRadius.circular(6)),
                       ),
-                      SizedBox(
-                        width: 8,
-                      ),
-                      Expanded(
-                        child: Container(
-                          color: Colors.greenAccent,
-                        ),
-                      )
-                    ],
-                  ),
+                    )
+                  ],
                 ),
               ),
             ),
             const SizedBox(height: 20),
             Container(
               height: 100,
-              color: Colors.redAccent,
-              child: Center(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(6),
+                color: Colors.lightBlueAccent,
+              ),
+              child: const Center(
                 child: Text("Contenitore footer"),
               ),
             )

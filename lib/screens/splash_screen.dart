@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:totem_gelati/screens/order_screen.dart';
-import 'package:widget_and_text_animator/widget_and_text_animator.dart';
+import 'package:totem_gelati/screens/splash_screen_carousel.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -9,30 +10,44 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Scaffold(
+        backgroundColor: Colors.amberAccent,
         body: Column(
           children: [
             Container(
               width: double.infinity,
-              height: 600,
+              height: 550,
               color: Colors.amberAccent,
-              child: const Center(
-                  child: Text(
-                style: TextStyle(fontSize: 20),
-                "Questo blocco conterrà un'immagine",
-              )),
+              child: const SplashScreenCarousel(),
             ),
             Expanded(
               child: Container(
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 168, 219, 255),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                      bottomLeft: Radius.zero,
+                      bottomRight: Radius.zero),
+                ),
                 child: Center(
-                    child: WidgetAnimator(
-                  atRestEffect: WidgetRestingEffects.pulse(),
                   child: Text(
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.w700,
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white,
+                    ),
+                    "Tocca per iniziare",
+                  )
+                      .animate(
+                        onPlay: (controller) =>
+                            controller.repeat(reverse: true),
+                      )
+                      .scale(
+                        begin: Offset(0.9, 0.9),
+                        end: Offset(1.0, 1.0),
+                        duration: 1500.ms,
                       ),
-                      "Tocca per iniziare"),
-                )),
+                ),
               ),
             ),
           ],
