@@ -38,6 +38,9 @@ dependencies:
   flutter_carousel_widget: ^2.2.0
   pulsator: ^1.0.0
   flutter_animate: ^4.5.0
+  badges: ^3.1.2
+  flutter_riverpod: ^2.5.1
+  uuid: ^4.4.0
 
 dev_dependencies:
   flutter_test:
@@ -61,8 +64,11 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/
+  assets:
+    - lib/images/
+    - assets/data/categorie.json
+    - assets/data/prodotti.json
+    - assets/data/varianti.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -1,69 +1,83 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:totem_gelati/components/bnav_button.dart';
+import 'package:totem_gelati/components/footer.dart';
+import 'package:totem_gelati/providers/category_provider.dart';
+import 'package:totem_gelati/providers/order_provider.dart';
 import 'package:totem_gelati/screens/order_screen.dart';
 import 'package:totem_gelati/screens/splash_screen_carousel.dart';
-import 'package:flutter_animate/flutter_animate.dart';
+import 'package:totem_gelati/utils/utils.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends ConsumerWidget {
   const SplashScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      child: Scaffold(
-        backgroundColor: Colors.amberAccent,
-        body: Column(
-          children: [
-            Container(
-              width: double.infinity,
-              height: 550,
-              color: Colors.amberAccent,
-              child: const SplashScreenCarousel(),
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: GestureDetector(
+        onTap: () {
+          ref
+              .read(categoryProvider.notifier)
+              .setCategory(Utils.categories[0].categoryId);
+
+          ref.read(orderProvider.notifier).init();
+
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const OrderScreen(),
             ),
-            Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 168, 219, 255),
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                      bottomLeft: Radius.zero,
-                      bottomRight: Radius.zero),
-                ),
-                child: Center(
-                  child: Text(
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white,
-                    ),
-                    "Tocca per iniziare",
-                  )
-                      .animate(
-                        onPlay: (controller) =>
-                            controller.repeat(reverse: true),
-                      )
-                      .scale(
-                        begin: Offset(0.9, 0.9),
-                        end: Offset(1.0, 1.0),
-                        duration: 1500.ms,
-                      ),
+          );
+          print("Tap");
+        },
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(35, 20, 35, 0),
+          child: Column(
+            children: [
+              Expanded(
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(24.0),
+                    color: Colors.amberAccent,
+                  ),
+                  child: const SplashScreenCarousel(),
                 ),
               ),
-            ),
-          ],
+              Container(
+                height: 70,
+                width: double.infinity,
+                margin: EdgeInsets.fromLTRB(0, 40, 0, 40),
+                decoration: BoxDecoration(
+                    color: Colors.blueAccent,
+                    borderRadius: BorderRadius.circular(24.0)),
+                child: Center(
+                  child: Text(
+                    "Tocca per iniziare",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 35.0,
+                      shadows: [
+                        Shadow(
+                          offset: Offset(0.0, 0.0), // Posizione dell'ombra
+                          blurRadius: 7.0, // Raggio di sfocatura dell'ombra
+                          color: Colors.black.withOpacity(
+                              0.6), // Colore dell'ombra con opacità
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
-      onTap: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => const OrderScreen(),
-          ),
-        );
-        print("Tap");
-      },
-      onLongPress: () {
-        print("Leva sto dito");
-      },
+      bottomNavigationBar: Footer(
+        btnColor: Colors.white12,
+        iconColor1: Colors.white,
+        iconColor2: Colors.blueAccent,
+      ),
     );
   }
 }
