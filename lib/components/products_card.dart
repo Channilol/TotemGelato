@@ -25,20 +25,78 @@ class _ProductsCardState extends ConsumerState<ProductsCard> {
         .getTotalItemPrice(widget.product.productId);
 
     return Card(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Image.asset(
+              widget.product.image ?? '../lib/images/splash3.jpg',
+              width: 50,
+              height: 50,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Text(
+            "${widget.product.description}",
+            style: TextStyle(fontSize: 15.0),
+          ),
+          Text(
+            '${widget.product.price}€',
+            style: TextStyle(fontSize: 12.0),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () => ref
+                    .read(orderProvider.notifier)
+                    .removeItem(widget.product.productId),
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.all(0),
+                  shape: const CircleBorder(),
+                ),
+                child: const Icon(CupertinoIcons.minus),
+              ),
+              Text(
+                "$itemQty",
+                style: const TextStyle(fontSize: 18.0),
+              ),
+              ElevatedButton(
+                onPressed: () => ref
+                    .read(orderProvider.notifier)
+                    .addItem(widget.product.productId),
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.all(0),
+                  shape: const CircleBorder(),
+                ),
+                child: const Icon(CupertinoIcons.add),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+}
+
+/* 
+Card(
       elevation: 0,
-      color: Color.fromARGB(255, 153, 238, 255),
-      margin: EdgeInsets.fromLTRB(0, 0, 0, 40),
+      color: const Color.fromARGB(255, 153, 238, 255),
+      margin: const EdgeInsets.fromLTRB(0, 0, 0, 40),
       child: Column(
         children: [
-          Container(
+          SizedBox(
             height: 65,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  '${widget.product.description}',
-                  style: TextStyle(fontSize: 18.0),
+                  widget.product.description,
+                  style: const TextStyle(fontSize: 18.0),
                 ),
                 Row(
                   children: [
@@ -47,9 +105,10 @@ class _ProductsCardState extends ConsumerState<ProductsCard> {
                           .read(orderProvider.notifier)
                           .removeItem(widget.product.productId),
                       style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.all(0),
-                        shape: CircleBorder(),
-                        backgroundColor: Color.fromRGBO(255, 255, 255, 0.8),
+                        padding: const EdgeInsets.all(0),
+                        shape: const CircleBorder(),
+                        backgroundColor:
+                            const Color.fromRGBO(255, 255, 255, 0.8),
                       ),
                       child: const Icon(CupertinoIcons.minus),
                     ),
@@ -65,9 +124,10 @@ class _ProductsCardState extends ConsumerState<ProductsCard> {
                           .read(orderProvider.notifier)
                           .addItem(widget.product.productId),
                       style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.all(0),
-                        shape: CircleBorder(),
-                        backgroundColor: Color.fromRGBO(255, 255, 255, 0.8),
+                        padding: const EdgeInsets.all(0),
+                        shape: const CircleBorder(),
+                        backgroundColor:
+                            const Color.fromRGBO(255, 255, 255, 0.8),
                       ),
                       child: const Icon(CupertinoIcons.add),
                     ),
@@ -77,9 +137,13 @@ class _ProductsCardState extends ConsumerState<ProductsCard> {
             ),
           ),
           ClipRRect(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(12),
+              bottomRight: Radius.circular(12),
+            ),
             child: Container(
               height: 30,
-              padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+              padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
               color: Colors.white54,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -87,7 +151,7 @@ class _ProductsCardState extends ConsumerState<ProductsCard> {
                 children: [
                   Text(
                     'Totale: $itemPrice€',
-                    style: TextStyle(fontSize: 15.0),
+                    style: const TextStyle(fontSize: 15.0),
                   ),
                 ],
               ),
@@ -96,5 +160,4 @@ class _ProductsCardState extends ConsumerState<ProductsCard> {
         ],
       ),
     );
-  }
-}
+ */

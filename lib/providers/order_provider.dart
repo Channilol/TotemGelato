@@ -25,6 +25,22 @@ class OrderProvider extends StateNotifier<OrderItem?> {
     state = tempOrder;
   }
 
+  void removeOrder(String rowId) {
+    var tempOrder = state?.clone() ?? OrderItem(rows: []);
+    if (tempOrder.rows.isNotEmpty) {
+      var itemToRemove =
+          tempOrder.rows.where((e) => e.rowId == rowId).firstOrNull;
+      if (itemToRemove != null) {
+        tempOrder.rows.remove(itemToRemove);
+      }
+    }
+    state = tempOrder;
+  }
+
+  void resetCart() {
+    state = OrderItem(rows: []);
+  }
+
   void setOrder(OrderItem order) {
     state = order;
   }

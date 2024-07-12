@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:totem_gelati/components/sidebar_item.dart';
 import 'package:totem_gelati/providers/category_provider.dart';
+import 'package:totem_gelati/providers/page_provider.dart';
 import 'package:totem_gelati/utils/utils.dart';
 
 // ignore: must_be_immutable
@@ -27,6 +28,7 @@ class _SidebarState extends ConsumerState<Sidebar> {
               ref
                   .read(categoryProvider.notifier)
                   .setCategory(Utils.categories[i].categoryId);
+              ref.read(pageProvider.notifier).resetPage();
             },
             child: SidebarItem(
                 position: i == 0
@@ -36,7 +38,7 @@ class _SidebarState extends ConsumerState<Sidebar> {
                         : 'middle',
                 selectionColor:
                     selectedCategoryId == Utils.categories[i].categoryId
-                        ? Color.fromARGB(255, 197, 237, 255)
+                        ? const Color.fromARGB(255, 197, 237, 255)
                         : Colors.white38,
                 img: Utils.categories[i].image,
                 title: Utils.categories[i].name),

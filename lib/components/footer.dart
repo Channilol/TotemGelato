@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:totem_gelati/components/bnav_button.dart';
 
 class Footer extends StatefulWidget {
@@ -22,7 +21,7 @@ class Footer extends StatefulWidget {
 class _FooterState extends State<Footer> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 80,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -35,7 +34,7 @@ class _FooterState extends State<Footer> {
             text: "Lingua/Languages",
             bgcolor: widget.btnColor, //Color.fromRGBO(0, 0, 0, 0.8),
           ),
-          SizedBox(
+          const SizedBox(
             width: 50,
           ),
           BNavButton(

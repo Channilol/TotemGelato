@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:totem_gelati/components/bnav_button.dart';
 import 'package:totem_gelati/components/footer.dart';
 import 'package:totem_gelati/providers/category_provider.dart';
 import 'package:totem_gelati/providers/order_provider.dart';
@@ -47,7 +45,7 @@ class SplashScreen extends ConsumerWidget {
               Container(
                 height: 70,
                 width: double.infinity,
-                margin: EdgeInsets.fromLTRB(0, 40, 0, 40),
+                margin: const EdgeInsets.fromLTRB(0, 40, 0, 40),
                 decoration: BoxDecoration(
                     color: Colors.blueAccent,
                     borderRadius: BorderRadius.circular(24.0)),
@@ -59,7 +57,7 @@ class SplashScreen extends ConsumerWidget {
                       fontSize: 35.0,
                       shadows: [
                         Shadow(
-                          offset: Offset(0.0, 0.0), // Posizione dell'ombra
+                          offset: const Offset(0.0, 0.0), // Posizione dell'ombra
                           blurRadius: 7.0, // Raggio di sfocatura dell'ombra
                           color: Colors.black.withOpacity(
                               0.6), // Colore dell'ombra con opacità
@@ -73,7 +71,7 @@ class SplashScreen extends ConsumerWidget {
           ),
         ),
       ),
-      bottomNavigationBar: Footer(
+      bottomNavigationBar: const Footer(
         btnColor: Colors.white12,
         iconColor1: Colors.white,
         iconColor2: Colors.blueAccent,

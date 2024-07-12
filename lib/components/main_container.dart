@@ -39,7 +39,7 @@ class _MainContainerState extends State<MainContainer> {
                   borderRadius: BorderRadius.circular(24.0),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(20.0),
                   child: widget.child,
                 ),
               ),

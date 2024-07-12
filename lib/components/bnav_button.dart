@@ -25,12 +25,12 @@ class BNavButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             icon,
-            SizedBox(
+            const SizedBox(
               width: 5,
             ),
             Text(
               text,
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
             ),
           ],
         ),

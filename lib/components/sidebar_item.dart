@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class SidebarItem extends StatelessWidget {
+class SidebarItem extends ConsumerStatefulWidget {
   const SidebarItem({
     super.key,
     required this.img,
@@ -15,16 +16,21 @@ class SidebarItem extends StatelessWidget {
   final Color selectionColor;
 
   @override
+  ConsumerState<SidebarItem> createState() => _SidebarItemState();
+}
+
+class _SidebarItemState extends ConsumerState<SidebarItem> {
+  @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(
         decoration: BoxDecoration(
-          color: selectionColor,
-          borderRadius: position == 'top'
+          color: widget.selectionColor,
+          borderRadius: widget.position == 'top'
               ? const BorderRadius.only(
                   topLeft: Radius.circular(12.0),
                   topRight: Radius.circular(12.0))
-              : position == 'bot'
+              : widget.position == 'bot'
                   ? const BorderRadius.only(
                       bottomLeft: Radius.circular(12.0),
                       bottomRight: Radius.circular(12.0))
@@ -37,12 +43,12 @@ class SidebarItem extends StatelessWidget {
             children: [
               Expanded(
                 child: Image.asset(
-                  img,
+                  widget.img,
                   fit: BoxFit.contain,
                 ),
               ),
               Text(
-                title,
+                widget.title,
                 style: const TextStyle(
                   color: Color.fromRGBO(0, 0, 0, 0.5),
                   fontSize: 17.0,

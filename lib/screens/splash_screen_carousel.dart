@@ -19,8 +19,8 @@ class SplashScreenCarousel extends StatelessWidget {
           showIndicator: false,
           autoPlay: true,
           autoPlayCurve: Curves.easeInBack,
-          autoPlayInterval: Duration(seconds: 4),
-          autoPlayAnimationDuration: Duration(milliseconds: 700),
+          autoPlayInterval: const Duration(seconds: 4),
+          autoPlayAnimationDuration: const Duration(milliseconds: 700),
         ),
         items: [
           Image.asset(

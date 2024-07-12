@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:totem_gelati/components/bnav_button.dart';
 import 'package:totem_gelati/components/footer.dart';
 import 'package:totem_gelati/components/main_container.dart';
 import 'package:totem_gelati/components/products_display.dart';
@@ -121,7 +119,7 @@ class _OrderScreenState extends ConsumerState<OrderScreen> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(12.0),
                             ),
-                            child: const Sidebar(),
+                            child: Sidebar(),
                           ),
                         ),
                         const SizedBox(

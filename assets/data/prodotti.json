@@ -166,5 +166,85 @@
         "order": 3
       }
     ]
+  },
+  {
+    "productId": "010",
+    "description": "Cono Grandissimo",
+    "price": 3.0,
+    "categoryId": "C01",
+    "extras": [
+      {
+        "extraId": "E01",
+        "order": 1
+      },
+      {
+        "extraId": "E02",
+        "order": 2
+      },
+      {
+        "extraId": "E03",
+        "order": 3
+      }
+    ]
+  },
+  {
+    "productId": "011",
+    "description": "Cono Immenso",
+    "price": 3.0,
+    "categoryId": "C01",
+    "extras": [
+      {
+        "extraId": "E01",
+        "order": 1
+      },
+      {
+        "extraId": "E02",
+        "order": 2
+      },
+      {
+        "extraId": "E03",
+        "order": 3
+      }
+    ]
+  },
+  {
+    "productId": "012",
+    "description": "Cono Galattico",
+    "price": 3.0,
+    "categoryId": "C01",
+    "extras": [
+      {
+        "extraId": "E01",
+        "order": 1
+      },
+      {
+        "extraId": "E02",
+        "order": 2
+      },
+      {
+        "extraId": "E03",
+        "order": 3
+      }
+    ]
+  },
+  {
+    "productId": "013",
+    "description": "Cono Universo",
+    "price": 3.0,
+    "categoryId": "C01",
+    "extras": [
+      {
+        "extraId": "E01",
+        "order": 1
+      },
+      {
+        "extraId": "E02",
+        "order": 2
+      },
+      {
+        "extraId": "E03",
+        "order": 3
+      }
+    ]
   }
 ]
